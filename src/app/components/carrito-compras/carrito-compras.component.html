@@ -1,0 +1,8 @@
+<button type="button" class="flex flex-row gap-1 items-start" [routerLink]="['/cart']">
+  <span class="material-symbols-outlined size24 cursor-pointer">
+    shopping_cart
+  </span>
+  @if (lista_carrito > 0) {
+    <span class="text-xs">{{ lista_carrito }}</span>
+  }
+</button>

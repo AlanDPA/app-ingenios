@@ -1,0 +1,118 @@
+<div
+  class="bg-gray-200 sm:bg-purpura text-white w-full min-h-screen sm:p-5 flex flex-col sm:gap-5"
+>
+  <div class="flex flex-col gap-5 max-sm:bg-purpura max-sm:shadow-md">
+    <div class="flex flex-row items-center justify-between w-full">
+      <h1 class="font-bold text-4xl max-sm:hidden">Ingenios</h1>
+      <button
+        class="cursor-pointer max-sm:pt-5 max-sm:px-5 flex flex-row items-center gap-1 truncate"
+        [routerLink]="['/']"
+      >
+        <span class="material-symbols-outlined size20 sm:invisible">
+          arrow_back
+        </span>
+        Seguir comprando
+      </button>
+    </div>
+    <h2 class="text-2xl font-bold max-sm:px-5 max-sm:pb-5 truncate">
+      Carrito de compras
+    </h2>
+  </div>
+
+  @if (productoObservable |async; as productos) { @if (productos.length > 0) {
+  <div
+    class="grid lg:grid-cols-6 gap-5 max-w-[800px] lg:max-w-[1500px] max-sm:flex-1 max-sm:content-between max-sm:pt-5 sm:mx-auto"
+  >
+    <div class="lg:col-span-4 flex flex-col sm:gap-5">
+      @for (producto of productos; track $index) {
+      <div
+        class="bg-white text-purpura w-full max-sm:max-h-[180px] sm:h-[180px] sm:px-10 px-2 max-sm:py-5 grid max-sm:grid-rows-3 grid-cols-3 sm:grid-cols-5 items-center justify-between gap-5 sm:rounded shadow-sm border-gray-400 border overflow-hidden"
+      >
+        <div
+          class="max-sm:row-span-3 w-full h-full flex items-start sm:items-center justify-center"
+        >
+          <img
+            class="w-[100px] h-[80px] object-cover rounded shadow-md"
+            [src]="producto.producto.imagen"
+            [alt]="producto.producto.descripcion"
+          />
+        </div>
+        <div class="col-span-2">
+          <h3 class="font-bold text-lg truncate">
+            {{ producto.producto.descripcion }}
+          </h3>
+          <button
+            class="text-blue-500 hover:text-blue-800 transition ease-in duration-75 font-semibold cursor-pointer"
+            (click)="eliminar(producto.producto)"
+          >
+            Eliminar
+          </button>
+        </div>
+
+        <div class="flex items-center sm:justify-center max-sm:col-span-2">
+          <div
+            class="w-auto h-[35px] flex flex-row border-gray-400 border rounded-sm"
+          >
+            <button
+              class="w-[30px] hover:bg-purpura/80 hover:text-white transition ease-in delay-75 duration-150 text-gray-800 cursor-pointer m-1 rounded"
+              (click)="decrementar(producto.producto, producto.cantidad)"
+            >
+              -
+            </button>
+            <input
+              class="w-[40px] outline-0 text-center no-spinner"
+              type="number"
+              [value]="producto.cantidad"
+              readonly
+            />
+            <button
+              class="w-[30px] hover:bg-purpura/80 hover:text-white transition ease-in delay-75 duration-150 text-gray-800 cursor-pointer m-1 rounded"
+              (click)="incrementar(producto.producto, producto.cantidad)"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="flex items-center max-sm:pr-5 justify-end max-sm:col-span-2"
+        >
+          <p class="font-semibold text-xl">
+            S/ {{ producto.subTotal | number : "1.2-2" }}
+          </p>
+        </div>
+      </div>
+      }
+    </div>
+    <div
+      class="lg:col-span-2 bg-white text-purpura max-h-[280px] rounded shadow-sm border-gray-400 border flex flex-col justify-between"
+    >
+      <div class="flex flex-col justify-center">
+        <h3 class="text-lg font-semibold px-6 py-5">Resumen de compra</h3>
+        <hr class="border-gray-400" />
+      </div>
+      <div class="flex flex-col h-full py-6 justify-between">
+        <div class="flex flex-col gap-2">
+          <p class="flex flex-row justify-between px-6 text-sm">
+            Productos <span>S/ {{ total | number : "1.2-2" }}</span>
+          </p>
+          <p class="flex flex-row justify-between px-6 text-sm">
+            Envío <span class="text-green-500 font-semibold">Gratis</span>
+          </p>
+        </div>
+        <p class="flex flex-row justify-between px-6 font-bold text-xl">
+          Total <span>S/ {{ total | number : "1.2-2" }}</span>
+        </p>
+      </div>
+      <button
+        class="bg-purpura text-white py-3 mb-3 mx-6 rounded shadow-md cursor-pointer"
+        type="submit"
+      >
+        Continuar compra
+      </button>
+    </div>
+  </div>
+  } @else {
+  <p class="pl-5">No existen productos seleccionados.</p>
+  } }
+</div>

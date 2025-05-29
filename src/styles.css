@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+    --color-purpura: #7A719E;
+    --color-amarillo:#fff4be;
+}
+
+@layer utilities {
+  .no-spinner::-webkit-inner-spin-button,
+  .no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .no-spinner {
+    -moz-appearance: textfield;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+span.size20 {
+  font-size: 20px;
+  font-variation-settings: 'OPSZ' 20;
+}
+span.size24 {
+  font-size: 24px;
+  font-variation-settings: 'OPSZ' 24;
+}
+span.size40 {
+  font-size: 40px;
+  font-variation-settings: 'OPSZ' 40;
+}
+span.size48 {
+  font-size: 48px;
+  font-variation-settings: 'OPSZ' 48;
+}

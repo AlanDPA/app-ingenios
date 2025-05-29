@@ -1,0 +1,21 @@
+<div class="flex flex-col gap-5">
+    <h2 class="text-2xl font-bold">Productos</h2>
+    @if (lista_productos.length > 0) {
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[1500px] m-auto gap-5 text-purpura">
+        @for (producto of lista_productos; track producto.id; let idx = $index) {
+        <div class="bg-white p-3 rounded shadow-md flex flex-col justify-between min-w-[200px] max-w-[320px]">
+                <img class="h-[200px] object-cover rounded" [src]="producto.imagen" [alt]="producto.descripcion">
+
+            <div class="flex flex-col gap-2">
+                <h2 class="uppercase font-semibold">{{producto.descripcion}}</h2>
+            <h3 class="font-bold text-sm flex items-center justify-between">Precio: <span class="font-bold text-lg">S/. {{producto.precio | number: '1.2-2'}}</span></h3>
+            <button class="bg-amarillo py-2 rounded shadow-md font-semibold uppercase cursor-pointer" type="button" (click)="agregarProducto(producto)">Agregar</button>
+            </div>
+        </div>
+    }
+    </div>
+}
+@else {
+    <p>No hay productos disponibles.</p>
+}
+</div>
