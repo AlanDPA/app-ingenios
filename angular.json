@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app-jam": {
+    "app-ingenios": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/app-jam",
+            "outputPath": "dist/app-ingenios",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app-jam:build:production"
+              "buildTarget": "app-ingenios:build:production"
             },
             "development": {
-              "buildTarget": "app-jam:build:development"
+              "buildTarget": "app-ingenios:build:development"
             }
           },
           "defaultConfiguration": "development"
