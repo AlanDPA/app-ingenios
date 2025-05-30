@@ -1,8 +1,14 @@
-<button type="button" class="flex flex-row gap-1 items-start" [routerLink]="['/cart']">
-  <span class="material-symbols-outlined size24 cursor-pointer">
-    shopping_cart
-  </span>
-  @if (lista_carrito > 0) {
-    <span class="text-xs">{{ lista_carrito }}</span>
-  }
+<button
+  type="button"
+  class="flex items-center justify-center bg-white text-purpura w-[50px] h-[50px] rounded-full shadow-md cursor-pointer"
+  [routerLink]="['/cart']"
+>
+  <div class="flex flex-row gap-1 items-start">
+    <span class="material-symbols-outlined size24">
+      shopping_cart
+    </span>
+    @if (lista_carrito > 0) {
+    <span class="text-xs font-bold">{{ lista_carrito }}</span>
+    }
+  </div>
 </button>

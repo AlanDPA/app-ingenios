@@ -4,7 +4,10 @@
 @theme {
   /* Colors */
     --color-purpura: #7A719E;
+    --color-purpura-oscuro: #5a597e;
     --color-amarillo:#fff4be;
+  /* BreakPoints */
+    --breakpoint-mobile:21rem;
 }
 
 @layer utilities {
